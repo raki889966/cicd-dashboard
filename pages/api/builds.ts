@@ -1,4 +1,5 @@
 // pages/api/builds.ts
+import type { NextApiRequest, NextApiResponse } from 'next';
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const builds = [
     {
