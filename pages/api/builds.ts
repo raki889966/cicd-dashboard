@@ -1,5 +1,5 @@
 // pages/api/builds.ts
-export default function handler(req, res) {
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const builds = [
     {
       id: 1,
