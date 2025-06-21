@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { saveBuild } from '../../lib/builds';
+//import { saveBuild } from '../../lib/builds';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
@@ -12,7 +12,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       duration: 'unknown',  // Could compute duration if you want
     };
 
-    saveBuild(build);
+    //saveBuild(build);
     res.status(200).json({ message: 'Build saved' });
   } else {
     res.status(405).json({ message: 'Method not allowed' });
