@@ -9,12 +9,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       status: payload.workflow_run?.conclusion || 'unknown',
       triggeredBy: payload.sender?.login || 'unknown',
       timestamp: payload.workflow_run?.created_at || new Date().toISOString(),
-      duration: 'unknown',
+      duration: 'unknown'
     };
 
     await saveBuild(build);
-
-    res.status(200).json({ message: 'Build saved to Redis' });
+    res.status(200).json({ message: 'Build saved' });
   } else {
     res.status(405).json({ message: 'Method not allowed' });
   }
