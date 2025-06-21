@@ -1,18 +1,17 @@
-import fs from 'fs';
-import path from 'path';
+import { Redis } from "@upstash/redis";
 
-const filePath = path.join(process.cwd(), 'data', 'builds.json');
+export const redis = new Redis({
+  url: process.env.KV_REST_API_URL!,
+  token: process.env.KV_REST_API_TOKEN!,
+});
 
-export function getBuilds() {
-  if (!fs.existsSync(filePath)) {
-    return [];
-  }
-  const fileData = fs.readFileSync(filePath, 'utf-8');
-  return JSON.parse(fileData);
+// Save build to Redis
+export async function saveBuild(build: any) {
+  await redis.lpush("builds", JSON.stringify(build));
 }
 
-export function saveBuild(build: any) {
-  const builds = getBuilds();
-  builds.unshift(build); // add new build to start
-  fs.writeFileSync(filePath, JSON.stringify(builds, null, 2));
+// Get builds from Redis
+export async function getBuilds() {
+  const results = await redis.lrange("builds", 0, 50); // Get last 50 builds
+  return results.map((item) => JSON.parse(item));
 }
