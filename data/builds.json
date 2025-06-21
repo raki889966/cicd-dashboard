@@ -1,0 +1,10 @@
+[
+    {
+    "id": 12345,
+    "status": "success",
+    "triggeredBy": "manual-test",
+    "timestamp": "2025-06-20T12:00:00Z",
+    "duration": "30s"
+  }
+]
+
