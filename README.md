@@ -21,7 +21,7 @@ A real-time **CI/CD Build Dashboard** built with **Next.js (TypeScript)**, featu
 ✅ Real-time build status table  
 ✅ Type-safe API (Next.js API routes + TypeScript)  
 ✅ GitHub Actions CI/CD pipeline  
-✅ Easy deploy on Vercel  
+✅ Easy deploy on Vercel  etc
 
 ---
 
